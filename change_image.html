@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>チェックボックス連携</title>
+</head>
+<body>
+    <div id="app">
+        <table class="table">
+            <tr>
+                <td>
+                    <div v-if="seatStatus[0]">
+                        <img src="./images/seat_unavail.png" alt="">
+                    </div>
+                    <div v-else>
+                        <img src="./images/seat_avail.png" alt="">
+                    </div>
+                </td>
+                <td>
+                    <div v-if="seatStatus[1]">
+                        <img src="./images/seat_unavail.png" alt="">
+                    </div>
+                    <div v-else>
+                        <img src="./images/seat_avail.png" alt="">
+                    </div>
+                </td>
+                <td>
+                    <div v-if="seatStatus[2]">
+                        <img src="./images/seat_unavail.png" alt="">
+                    </div>
+                    <div v-else>
+                        <img src="./images/seat_avail.png" alt="">
+                    </div>
+                </td>
+                <td>
+                    <div v-if="seatStatus[3]">
+                        <img src="./images/seat_unavail.png" alt="">
+                    </div>
+                    <div v-else>
+                        <img src="./images/seat_avail.png" alt="">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" value="A1" v-model="seatStatus[0]">A1</td>
+                <td><input type="checkbox" name="" value="A2" v-model="seatStatus[1]">A2</td>
+                <td><input type="checkbox" name="" value="A3" v-model="seatStatus[2]">A3</td>
+                <td><input type="checkbox" name="" value="A4" v-model="seatStatus[3]">A4</td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data: {
+                seatStatus : []
+            }
+        })
+        </script> 
+</body>
+</html>

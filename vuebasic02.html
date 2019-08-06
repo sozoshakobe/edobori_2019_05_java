@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Vue.js基本ファイル</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Vue.js  条件分岐</h1>
+        <div v-if="flg">
+            <p>Vue.jsの条件分岐はv-ifを使用します。</p>
+        </div>
+        <div v-else>
+                <p>Vue.jsの条件分岐はv-if/v-elseを使用します。</p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+    const app = new Vue({
+        el:"#app",
+        data: {
+            flg: true,
+        }
+    })
+    </script>  
+</body>
+</html>

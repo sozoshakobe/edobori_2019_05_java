@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>お一人様専門映画館シネマぼっち</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>お一人様専門映画館シネマぼっち</h1>
+        <div class="alert alert-primary" role="alert">
+            座席を選んでください。
+        </div>
+        <form action="" method="post">
+            <table class="table" id="seatAvail">
+                <tr>
+                    <td><img src="./images/seatblack.png" alt="A1" width="200px" id="imgA1"></td>
+                    <td><img src="./images/seatblack.png" alt="A2" width="200px" id="imgA2"></td>
+                    <td><img src="./images/seatblack.png" alt="A3" width="200px" id="imgA3"></td>
+                    <td><img src="./images/seatblack.png" alt="A4" width="200px" id="imgA4"></td>
+                </tr>
+                <tr>
+                    <td>A1 <input type="radio" name="seat" id="A1" value="A1" class="selectedSeat"></td>
+                    <td>A2 <input type="radio" name="seat" id="A2" value="A2" class="selectedSeat"></td>
+                    <td>A3 <input type="radio" name="seat" id="A3" value="A3" class="selectedSeat"></td>
+                    <td>A4 <input type="radio" name="seat" id="A4" value="A4" class="selectedSeat"></td>
+                </tr>
+                <tr>
+                    <td><img src="./images/seatblack.png" alt="B1" width="200px" id="imgB1"></td>
+                    <td><img src="./images/seatblack.png" alt="B2" width="200px" id="imgB2"></td>
+                    <td><img src="./images/seatblack.png" alt="B3" width="200px" id="imgB3"></td>
+                    <td><img src="./images/seatblack.png" alt="B4" width="200px" id="imgB4"></td>
+                </tr>
+                <tr>
+                    <td>B1 <input type="radio" name="seat" id="B1" value="B1" class="selectedSeat"></td>
+                    <td>B2 <input type="radio" name="seat" id="B2" value="B2" class="selectedSeat"></td>
+                    <td>B3 <input type="radio" name="seat" id="B3" value="B3" class="selectedSeat"></td>
+                    <td>B4 <input type="radio" name="seat" id="B4" value="B4" class="selectedSeat"></td>
+                </tr>
+            </table>
+            <div class="form-group">
+                <label for="TicketCategory">チケット種類</label>
+                <select class="form-control" name="myTicketCategory" id="TicketCategory">
+                  <option value="adult">大人　1,500円</option>
+                  <option value="studentA">大学生 1,200円</option>
+                  <option value="studentB">高校生　1,000円</option>
+                  <option value="studentC">中学生　800円</option>
+                  <option value="kids">小学生以下　500円</option>
+                </select>
+              </div>
+            <button class="btn btn-primary" type="submit">次へ</button>
+        </form>
+    </div>
+    <script>
+    $(document).ready(function(){
+        //alert(jQuery.fn.jquery);
+        const reserved = ['A1','B2'];//選択肢
+        let currentChoice;//現在選ばれている座席
+
+        //選択済みの座席の色を変え、選択不可にする
+        reserved.forEach(function(resv){
+            $('#img'+resv).attr('src','./images/seatgray.png');
+            $('#'+resv).prop('disabled', true);
+        });
+        /*
+        $('.selectedSeat').change(function(){
+            currentChoice = $(this).val();
+            const imgSrc = $('#img'+currentChoice);
+            if(imgSrc.attr('src') === './images/seatblack.png'){
+                imgSrc.attr('src','./images/seatred.png');
+            }else{
+                imgSrc.attr('src','./images/seatblack.png');
+            }
+        });
+        */
+        $('.selectedSeat').each(function(){
+            $(this).change(function(){
+                $('#img'+$(this).val()).attr('src','./images/seatred.png');
+                if(currentChoice){
+                    $(currentChoice).attr('src','./images/seatblack.png');
+                }
+                currentChoice = '#img'+$(this).val();
+            })
+        });
+    });
+    </script>
+</body>
+</html>
